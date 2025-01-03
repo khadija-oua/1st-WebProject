@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burger Builder</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div class="container">
+        <h1 >Make you own Burger 🍔</h1>
+        
+        <div class="burger-builder">
+            <div class="ingredients-panel">
+                <h2>Choose Ingredients</h2>
+               
+      <!-- Lettuce -->
+               <div class="ingredient-buttons">
+                    <button onclick="addIngredient('lettuce')">+</button>
+                    <div class="ingredient-box">
+                        <div class="cucumber items">
+                            <div class="cucumber-figure figures">
+                                <div class="cucumberfig">
+                                   
+                                        <div class="cucumbercircle1"></div>
+                                        <div class="cucumbercircle2"></div>
+                                        <div class="cucumbercircle3"></div>
+                                        <div class="cucumbercircle4"></div>
+                                    <div class="cucumbercircle5"></div>
+                                </div>
+                            </div>
+                            </div>
+                    </div>
+                       <button onclick="removeIngredient('lettuce')">-</button>
+                       <button class="engredientPrice" style="width: 50px;background-color: #f59e0b;font-weight: 600;">$1</button>
+                </div>
+
+      <!-- Cheese -->
+                <div class="ingredient-buttons">
+                    <button onclick="addIngredient('cheese')">+</button>
+                    <div class="ingredient-box">
+                        <div class="square-cheese">
+                            <div class="cheesecercle1"></div>
+                            <div class="cheesecercle2"></div>
+                            <div class="cheesecercle3"></div>
+                        </div>
+                    </div>
+                      <button onclick="removeIngredient('cheese')">-</button>
+                      <button class="engredientPrice" style="width: 50px;background-color: #f59e0b;font-weight: 600;">$2</button>
+                </div>
+
+      <!-- Patty -->
+                <div class="ingredient-buttons">
+                  <button onclick="addIngredient('patty')">+</button>
+                  <div class="ingredient-box">
+                    <div class="pattycercle">
+                        <div class="pattyelement1"></div>
+                        <div class="pattyelement2"></div>
+                        <div class="pattyelement3"></div>
+                    </div>
+                  </div>
+                   <button onclick="removeIngredient('patty')">-</button>
+                   <button class="engredientPrice" style="width: 50px;background-color: #f59e0b;font-weight: 600;">$3</button>
+                </div>
+
+      <!-- Tomato -->
+                 <div class="ingredient-buttons">
+                      <button onclick="addIngredient('tomato')">+</button>
+                      <div class="ingredient-box">
+                        <div class="tomatos items">
+                        <div class="tomato-figure figures">
+                            <div class="tomatofig">
+                                <div class="tomatocircleA">
+                                    <div class="tomatocircle1"></div>
+                                    <div class="tomatocircle2"></div>
+                                    <div class="tomatocircle3"></div>
+                                    <div class="tomatocircle4"></div>
+                                </div>
+                                <div class="tomatocircleB">
+                                    <div class="tomatocircle1"></div>
+                                    <div class="tomatocircle2"></div>
+                                    <div class="tomatocircle3"></div>
+                                    <div class="tomatocircle4"></div>
+                                </div>
+                                <div class="tomatocircle5"></div>
+                                <div class="tomatoparticle"><div class="tomatoinsideparticle"></div></div>
+                                <div class="tomatoparticle1"><div class="tomatoinsideparticle"></div></div>
+                                <div class="tomatoparticle2"><div class="tomatoinsideparticle"></div></div>
+                                <div class="tomatoparticle3"><div class="tomatoinsideparticle"></div></div>
+                                <div class="tomatoparticle4"><div class="tomatoinsideparticle"></div></div>
+                                <div class="tomatoparticle5"><div class="tomatoinsideparticle"></div></div>
+                                <div class="tomatoparticle6"><div class="tomatoinsideparticle"></div></div>
+                                <div class="tomatoparticle7"><div class="tomatoinsideparticle"></div></div>
+                            </div>
+                        </div>
+                        </div>
+                     </div>
+                       <button onclick="removeIngredient('tomato')">-</button>
+                       <button class="engredientPrice" style="width: 50px; background-color: #f59e0b;font-weight: 600;">$1.5</button>
+                </div>
+            </div>
+            <div class="burger-preview">
+             
+                <h2>Your Burger</h2>
+                <div class="burger-visualization" >
+                    <div class="sandwich" id="sandwich">
+                        <div class="bun top"></div>
+                        <!-- Ingredients will be added here dynamically -->
+                        <div class="bun bottom"></div>
+                    </div>
+                
+            </div>
+            <button class="clear" onclick="clearSandwich()" >Restart</button>
+                <div class="price-summary">
+                    <div class="price-row">
+                        <span>Base Price:</span>
+                        <span>$3</span>
+                    </div>
+                    <div class="price-row">
+                        <span>Ingredients:</span>
+                        <span id="ingredients-price">$0.00</span>
+                    </div>
+                    <div class="price-row total">
+                        <span>Total:</span>
+                        <span id="total-price">$3</span>
+                    </div>
+                    <button id="order-button" class="order-button" onclick="redirectToOrderPage()">
+    🛒 Order Now
+</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Summary - Burger Builder</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/order.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Order Summary 🧾</h1>
+        
+        <div class="order-summary">
+            <div class="order-details">
+                <h2>Your Custom Burger</h2>
+                <div id="ingredients-summary" class="ingredients-summary"></div>
+                
+                <div class="price-details">
+                    <div class="price-row">
+                        <span>Base Price:</span>
+                        <span>$3</span>
+                    </div>
+                    <div class="price-row">
+                        <span>Ingredients:</span>
+                        <span id="ingredients-total">$0.00</span>
+                    </div>
+                    <div class="price-row total">
+                        <span>Total:</span>
+                        <span id="final-total">$3</span>
+                    </div>
+                </div>
+
+                <div class="actions">
+                    <button onclick="window.location.href='index.html'" class="secondary-button">
+                        ← Back to Builder
+                    </button>
+                    <button onclick="placeOrder()" class="primary-button">
+                        Confirm Order 🎉
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          
+          const queryString = window.location.search;
+          const urlParams = new URLSearchParams(queryString);
+      
+          const ingredients = urlParams.get('ingredients')?.split(',') || [];
+          const ingredientsTotal = urlParams.get('ingredientsTotal') || '0.00';
+          const finalTotal = urlParams.get('finalTotal') || '3';
+      
+          const ingredientsSummaryElement = document.getElementById('ingredients-summary');
+          const ingredientsTotalElement = document.getElementById('ingredients-total');
+          const finalTotalElement = document.getElementById('final-total');
+      
+          
+          const ingredientCounts = {};
+          ingredients.forEach((ingredient) => {
+            ingredientCounts[ingredient] = (ingredientCounts[ingredient] || 0) + 1;
+          });
+      
+      
+          Object.entries(ingredientCounts).forEach(([ingredient, count]) => {
+            const ingredientDiv = document.createElement('div');
+            ingredientDiv.className = 'ingredient-summary-item';
+      
+            
+            ingredientDiv.textContent = `${ingredient.charAt(0).toUpperCase() + ingredient.slice(1)}: ${count}`;
+            ingredientsSummaryElement.appendChild(ingredientDiv);
+          });
+      
+        
+          ingredientsTotalElement.textContent = `$${ingredientsTotal}`;
+          finalTotalElement.textContent = `$${finalTotal}`;
+        });
+      </script>
+      
+      
+    
+</body>
+</html>
