@@ -63,17 +63,6 @@ function updateAllPrices() {
   if (ingredientsTotalElement) ingredientsTotalElement.textContent = formattedIngredientsPrice;
   if (finalTotalElement) finalTotalElement.textContent = formattedFinalPrice;
 }
-function placeOrer() {
-  const ingredientsSummaryElement = document.getElementById('ingredients-summary');
-  ingredientsSummaryElement.innerHTML = '';
-  const ingredients = getIngredients('.lettuce, .cheese, .patty, .tomato');
-  ingredients.forEach((ingredient) => {
-    const ingredientDiv = document.createElement('div');
-    ingredientDiv.textContent = formatIngredientName(ingredient.className);
-    ingredientsSummaryElement.appendChild(ingredientDiv);
-  });
-  updateAllPrices();
-}
 function redirectToOrderPage() {
   const ingredients = Array.from(getIngredients('.lettuce, .cheese, .patty, .tomato')).map((ingredient) => ingredient.className);
 
